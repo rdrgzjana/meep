@@ -16,32 +16,70 @@
     </nav>
 
     <header class="slideshow">
-        <img class="slideshow-img" src="img/img1.jpg">
-        <img class="slideshow-img" src="img/img2.jpg">
-        <img class="slideshow-img" src="img/img3.jpg">
-        <img class="slideshow-img" src="img/img4.jpg">
+        <img src="img/img1.jpg" class="slideshow-img">
+        <img src="img/img2.jpg" class="slideshow-img">
+        <img src="img/img3.jpg" class="slideshow-img">
+        <img src="img/img4.jpg" class="slideshow-img">
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </header>
 
     <div id="About">
         <div class="aboutUs">
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere 
-                cumque magni, impedit expedita itaque, deleniti error vero 
-                consequuntur dolorum at vitae repellat tenetur, ducimus numquam 
-                autem dicta animi laboriosam cum.</p>   
-        </div> 
-        <div class="profiles">
-            <div class="profile">
-                <img src="img/carmela.jpg">
-                <span>Carmela</span>
-                <img src="img/carreon.jpg">
-                <span>Carreon</span>
-                <img src="img/hannah.jpg">
-                <span>Hannah</span>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere
+                cumque magni, impedit expedita itaque, deleniti error vero
+                consequuntur dolorum at vitae repellat tenetur, ducimus numquam
+                autem dicta animi laboriosam cum.</p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="profile">
+                    <img class="profile-img" src="img/carmela.jpg">
+                    <h1>Carmela</h1>
+                </div>
+            </div>
+            <div class="column">
+                <div class="profile">
+                    <img class="profile-img" src="img/carreon.jpg">
+                    <h1>Carmela</h1>
+                </div>
+            </div>
+            <div class="column">
+                <div class="profile">
+                    <img class="profile-img" src="img/hannah.jpg">
+                    <h1>Carmela</h1>
+                </div>
             </div>
         </div>
     </div>
 
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slideshow-img");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        }
+    </script>
 </body>
 </html>
